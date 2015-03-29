@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
+  resources :categories, id: /[A-Za-z0-9%\.]+?/  do
+    resources :products, category_id: /[A-Za-z0-9%\.]+?/
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

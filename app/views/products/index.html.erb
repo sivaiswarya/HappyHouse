@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-4">
+    <h1>Categories</h1>
+    <div class="list-group">
+      <% @categories.each do |category| %>
+        <%= link_to category[1], category_products_path(URI::encode(category[1])), class: "list-group-item" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-xs-8">
+    <h1>Products</h1>
+    <div>
+      <div>
+        <% @products.each do |product| %>
+          <h2><%= product[0] %></h2>
+          <%= image_tag(product[2]) %>
+          <span><%= product[1] %></p>
+          <p><%= product[3] %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
