@@ -8,7 +8,14 @@
     </div>
   </div>
   <div class="col-xs-8">
-    <h1>Featured Products</h1>
-    <div><p>TODO: Carousel</p></div>
+    <h1 align="center">All Products</h1>
+    <div>
+        <% @products.each do |product| %>
+          <h2><%= product[1] %></h2>
+          <%= image_tag(product[4]) %>
+          <p><%= product[2] %></p>
+          <p> Price: $ <%= product[3] %>  </p>
+        <% end %>
+      </div>
   </div>
-</div>
+   </div>
