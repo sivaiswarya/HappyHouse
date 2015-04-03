@@ -14,3 +14,24 @@
  *= require_self
  
  */
+ .navbar-inverse .navbar-header .navbar-brand {
+ 	padding: 5px;
+ }
+
+.navbar-inverse .navbar-header .navbar-brand img {
+ 	width: 40px;
+ 	height: 55px;
+ 	display: inline-block;
+ 	margin-right: 5px;
+ 	padding-bottom: 15px;
+ }
+
+.navbar-right a {
+	margin: 5px;
+}
+
+.navbar-inverse .navbar-header .navbar-brand span {
+ 	color: white;
+ 	font-size: 28px;
+ 	margin-top: 5px;
+ }

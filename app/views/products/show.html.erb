@@ -1,0 +1,28 @@
+<h1 class="product-header"><%= @product[0]["name"] %></h1>
+<div class="row">
+  <div class="col-xs-3">
+    <%= image_tag(@product[0]["image"], class: "product_image") %>
+  </div>
+  <div class="col-xs-9">
+    <div>
+      <h2>Description</h2>
+      <p><%= @product[0]["description"] %></p>
+    </div>
+    <dl class="inline-list">
+      <dt>Price:</dt>
+      <dd>$<%= @product[0]["price"] %></dd>
+    </dl>
+    <a href="#" class="btn btn-primary">Add To Cart</a>
+  </div>
+</div>
+<div class="reviews row">
+  <div class="col-xs-12">
+    <h3>Product Reviews (0)</h2>
+  </div>
+  <div class="review-form col-xs-8">
+    <form>
+      <textarea class="form-control" rows="3" placeholder="Please login to review the product" disabled></textarea>
+      <button type="submit" class="btn btn-info" disabled>Submit</button>
+    </form>
+  </div>
+</div>

@@ -11,10 +11,11 @@
     <h1 align="center">All Products</h1>
     <div>
         <% @products.each do |product| %>
-          <h2><%= product[1] %></h2>
-          <%= image_tag(product[4]) %>
+          <% category_id =  %>
+          <%= link_to product[1], category_product_path(category_id: URI::encode(product[5]), id: product[0]), class: "product_title" %>
+          <%= image_tag(product[3]) %>
           <p><%= product[2] %></p>
-          <p> Price: $ <%= product[3] %>  </p>
+          <p> Price: $ <%= product[4] %>  </p>
         <% end %>
       </div>
   </div>

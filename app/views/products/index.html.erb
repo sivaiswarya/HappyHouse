@@ -8,11 +8,11 @@
     </div>
   </div>
   <div class="col-xs-8">
-      <h1 align="center"> Products </h1>
+      <h1 align="center"><%= "#{URI::decode(params[:category_id])} Products" %></h1>
     <div>
       <div>
         <% @products.each do |product| %>
-          <h2><%= product[0] %></h2>
+        <%= link_to product[0], category_product_path(id: product[4]), class: "product_title" %>
           <%= image_tag(product[2]) %>
           <p><%= product[1] %></p>
           <p> Price: $ <%= product[3] %>  </p>
