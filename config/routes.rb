@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root 'home#index'
 
   resources :categories, id: /[A-Za-z0-9%\.]+?/  do
