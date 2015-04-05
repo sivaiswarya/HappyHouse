@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
   root 'home#index'
+
+  resources :users
 
   resources :categories, id: /[A-Za-z0-9%\.]+?/  do
     resources :products, category_id: /[A-Za-z0-9%\.]+?/
   end
+  
+  get 'signup'    => 'users/new'
+  get 'login'     => 'sessions#new'
+  post 'login'    => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+   
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
