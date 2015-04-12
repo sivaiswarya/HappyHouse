@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :products, category_id: /[A-Za-z0-9%\.]+?/
   end
   
-  get 'signup'    => 'users/new'
+  get 'signup'    => 'users#new'
   get 'login'     => 'sessions#new'
   post 'login'    => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
