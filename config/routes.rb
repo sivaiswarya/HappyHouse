@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :categories, id: /[A-Za-z0-9%\.]+?/  do
     resources :products, category_id: /[A-Za-z0-9%\.]+?/
   end
+
+  resource :cart, only: [:show]
+  resources :order_details, only: [:create, :update, :destroy]
   
   get 'signup'    => 'users#new'
   get 'login'     => 'sessions#new'

@@ -11,13 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405011640) do
+ActiveRecord::Schema.define(version: 20150413002349) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "order_id",   limit: 4
+    t.integer  "quantity",   limit: 4
+    t.decimal  "total",                precision: 12, scale: 3
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.decimal  "unit_price",           precision: 12, scale: 3
+  end
+
+  add_index "order_details", ["order_id"], name: "index_order_details_on_order_id", using: :btree
+  add_index "order_details", ["product_id"], name: "index_order_details_on_product_id", using: :btree
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal  "subtotal",                  precision: 12, scale: 3
+    t.decimal  "tax",                       precision: 12, scale: 3
+    t.decimal  "shipping_cost",             precision: 12, scale: 3
+    t.decimal  "total",                     precision: 12, scale: 3
+    t.integer  "order_status_id", limit: 4
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+  end
+
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -40,5 +71,8 @@ ActiveRecord::Schema.define(version: 20150405011640) do
     t.string   "password_digest", limit: 255
   end
 
+  add_foreign_key "order_details", "orders"
+  add_foreign_key "order_details", "products"
+  add_foreign_key "orders", "order_statuses"
   add_foreign_key "products", "categories"
 end

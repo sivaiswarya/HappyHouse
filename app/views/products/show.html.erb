@@ -8,12 +8,16 @@
       <h2>Description</h2>
       <p><%= @product[0]["description"] %></p>
     </div>
-    <dl class="inline-list">
-      <dt>Price:</dt>
-      <dd>$<%= @product[0]["price"] %></dd>
-    </dl>
-    <a href="#" class="btn btn-primary">Add To Cart</a>
-  </div>
+    <%= form_for @order_detail do |f| %>
+      <h4>Price: <span style="color: green"><%= number_to_currency @product[0]["price"] %></span></h4>
+      <div class="input-group">
+        <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+        <div class="input-group-btn">
+          <%= f.hidden_field :product_id, value: params[:id] %>
+          <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
 </div>
 <div class="reviews row">
   <div class="col-xs-12">

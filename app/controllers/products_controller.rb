@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  include ApplicationHelper
+  
   def index
     @categories = get_categories
 
@@ -7,6 +9,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = get_product
+    @order_detail = current_order.order_details.new
   end
 
   private
