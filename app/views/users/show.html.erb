@@ -1,1 +1,31 @@
-<%= @user.first_name %> <%= @user.last_name %>, <%= @user.email %>
+<div class='panel panel-primary'>
+  <div class='panel-heading'>User Profile</div>
+  <div class='panel-body'>
+    <dl class='inline-list'>
+      <dt>Name: </dt>
+      <dd><%= @user.first_name %> <%= @user.last_name %></dd>
+      <br><dt>Email: </dt>
+      <dd><%= @user.email %></dd>
+    </dl>
+  </div>
+</div>
+<div class='panel panel-primary payment-info'>
+  <div class='panel-heading'>
+    Payment Information
+    <% if @card_info.any? %>
+      <%= link_to "Edit", edit_payment_info_path, class: 'btn btn-default' %>
+    <% end %>
+  </div>
+  <div class='panel-body'>
+    <% if @card_info.any? %>
+      <dl class='inline-list'>
+        <dt>Card Number: </dt>
+        <dd><%= @card_info.first[1] %></dd>
+        <br><dt>Expiration Date: </dt>
+        <dd><%= @card_info.first[2] %></dd>
+      </dl>
+    <% else %>
+      <%= link_to "Add card information", new_payment_info_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

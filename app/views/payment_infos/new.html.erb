@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-4">
+    <h1>Enter Card Details</h1>
+    <%= form_for @payment_info do |f| %>
+      <div class="form-group">
+        <%= f.label :card_num %>
+        <%= f.text_field :card_num, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :expiration_date %>
+        <%= f.date_field :expiration_date, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :ccv %>
+        <%= f.text_field :ccv, class: "form-control" %>
+      </div>
+
+      <%= f.submit "Add Card", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

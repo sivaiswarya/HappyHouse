@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  card_num: MyString
+  expiration_date: 2015-04-19
+  ccv: MyString
+  user_id: 
+
+two:
+  card_num: MyString
+  expiration_date: 2015-04-19
+  ccv: MyString
+  user_id: 

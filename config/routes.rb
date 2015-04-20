@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users
+  resources :payment_infos
 
   resources :categories, id: /[A-Za-z0-9%\.]+?/  do
     resources :products, category_id: /[A-Za-z0-9%\.]+?/
