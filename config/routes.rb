@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :products, category_id: /[A-Za-z0-9%\.]+?/
   end
 
-  resource :cart, only: [:show]
+  resource :cart, only: [:show] do
+    get "checkout" => 'carts#checkout'
+    post "confirm" => 'carts#confirm'
+  end
   resources :order_details, only: [:create, :update, :destroy]
   
   get 'signup'    => 'users#new'
